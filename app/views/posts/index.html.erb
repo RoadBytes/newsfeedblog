@@ -28,32 +28,36 @@
 
 <h1>News Feed</h1>
 
+<h3>Queried Fresh At: <%= @query_time %></h3>
+
 <table>
   <thead>
     <tr>
       <th>
-        <%= " news_article.date " %>
+        <%= "Date and Time" %>
       </th>
       <th>
-        <%= " news_article.name " %>
+        <%= "Type of Article" %>
       </th>
       <th>
-        <%= " news_article.body " %>
+        <%= "Text" %>
       </th>
     </tr>
   </thead>
 
-  <tbody>
-    <tr>
-      <td>
-        1/10/2016
-      </td>
-      <td>
-        FaceBook: Titie
-      </td>
-      <td>
-        Body of blurb here, man this is a bit crazier then I though it would be.
-      </td>
-    </tr>
-  </tbody>
+  <%- @news_objects.each do |news_object| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= news_object.created_at %>
+        </td>
+        <td>
+          <%= news_object.type %>
+        </td>
+        <td>
+          <%= news_object.object_text %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
 </table>

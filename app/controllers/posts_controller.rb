@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts        = Post.all
+    @news_objects = NewsBundle.get_objects
+    @query_time   = NewsBundle.query_refreshed_at
   end
 
   # GET /posts/1
