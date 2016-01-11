@@ -2,8 +2,9 @@
 
 After my first developer interview, I had an "inspiration" to make a toy blog app to see if I could implement a *News Feed* feature where the News Feed would display the last six "things" I did.
 
-[Here's my finished coding spike](https://newsfeed-blog.herokuapp.com/): https://newsfeed-blog.herokuapp.com/
-[Repo is here](https://github.com/RoadBytes/newsfeedblog): https://github.com/RoadBytes/newsfeedblog
+* [Here's my finished coding spike](https://newsfeed-blog.herokuapp.com/): https://newsfeed-blog.herokuapp.com/
+
+* [Repo is here](https://github.com/RoadBytes/newsfeedblog): https://github.com/RoadBytes/newsfeedblog
 
 ### Here are a few specs I think I remember:
 * The feed could include blog posts, or tweets, or other media I could have out there.
@@ -23,6 +24,15 @@ Then, I had to do some sleuthing for a Twitter Rails gem.  I found [this](https:
   * I made a `NewsBundle` model that would instantiate `NewItem`s and pull off the `created_at`, `object_text`, and `type` information
   * it was much easier working with two types of objects, `Posts` and `Tweets` but adding another type of object would be interesting
   * to limit the API querying, I had the `NewsBundle` only update if it wasn't ever called or if was older than 5 minutes
+  * Thanks [Milan](https://twitter.com/milandobrota) for the help
+
+~~~
+  def self.query_stale?
+    # expire @query every five minutes
+    @query_refreshed_at ||= Time.now
+    @objects.blank? || (Time.now - @query_refreshed_at > 5.minutes)
+  end
+~~~
 
 ### Things to think of for next steps
 * I haven't added testing so I'd consider this more of a spike since I'm not using this for production
@@ -34,7 +44,7 @@ Then, I had to do some sleuthing for a Twitter Rails gem.  I found [this](https:
 ## Here is the main bread and butter of the NewsBundle
 
 * I'm still needing to get over terms... I like `NewsBundle` better than `NewsFeed`, but I need to stick to one and own it eventually.
-* I probably need to move the `NewsItem` out, but too didn't really mind it since it's a code spike
+* I probably need to move the `NewsItem` out, but I didn't really mind it since it's a code spike (haha, did I say code spike enough?)
   * I've never hard coded a class inside a class like that (I'm sure that's a noob thing [insert tounge face])
 * It's weird, but the `NewsBundle` is really the Enumerable version of `NewsItem`... I'm sure there's an easy way to arrange or set up the model.
 
