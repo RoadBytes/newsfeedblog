@@ -196,7 +196,6 @@ end
 
 ### In conlusion, I'm going to bed!
 
-All in all, this was a great experience and I've learned a lot from taking something from idea to implementation.  Getting my first interview was a great experience and I'm sure there will be other opportunities for me to stretch myself and show progress.  If you have any questions or comments, leave one on my blog site: [roadbytes.me](http://roadbytes.me) or email me at:
+All in all, this was a great experience and I've learned a lot from taking something from idea to implementation.  Getting my first interview was a great experience and I'm sure there will be other opportunities for me to stretch myself and show progress.  If you have any questions or comments, leave one on my blog post: [roadbytes.me](http://roadbytes.me/blog/2016/01/13/first-interview.html) or email me at:
 
 Jason.Data@roadbytes.me
-
